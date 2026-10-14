@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
-import { LogOut } from "lucide-react";
+import { LogOut, Menu } from "lucide-react";
 import { supabase } from "../lib/supabase";
 import Sidebar from "../components/Sidebar";
 import OverviewTab from "../components/OverviewTab";
@@ -37,6 +37,7 @@ export default function DashboardPage() {
   const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState("overview");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [checkingAuth, setCheckingAuth] = useState(true);
   const [dataLoading, setDataLoading] = useState(true);
   const [loadError, setLoadError] = useState("");
@@ -161,16 +162,29 @@ export default function DashboardPage() {
         activeTab={activeTab}
         setActiveTab={setActiveTab}
         onLogout={handleLogout}
+        isOpen={sidebarOpen}
+        onClose={() => setSidebarOpen(false)}
       />
 
-      <main className="flex-1 ml-64 min-h-screen flex flex-col">
-        {/* شريط علوي أنيق يحتوي على زر تسجيل الخروج وحالة الآدمن */}
-        <header className="sticky top-0 z-40 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/60 px-8 py-3.5 flex items-center justify-between">
+      <main className="flex-1 w-full lg:ml-64 min-h-screen flex flex-col min-w-0 transition-all duration-300">
+        {/* شريط علوي أنيق يحتوي على زر القائمة للموبايل وحالة الآدمن وزر تسجيل الخروج */}
+        <header className="sticky top-0 z-30 bg-zinc-950/80 backdrop-blur-xl border-b border-zinc-800/60 px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <span className="text-xs text-zinc-500 uppercase tracking-widest font-semibold">
+            {/* زر فتح القائمة الجانبية للموبايل */}
+            <button
+              type="button"
+              id="mobile-sidebar-toggle"
+              onClick={() => setSidebarOpen(true)}
+              className="lg:hidden p-2 -ml-2 rounded-xl text-zinc-400 hover:text-white hover:bg-zinc-800/60 border border-transparent hover:border-zinc-700/60 transition-all active:scale-95"
+              aria-label="Open navigation menu"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+
+            <span className="text-xs text-zinc-500 uppercase tracking-widest font-semibold hidden sm:inline">
               Admin Portal
             </span>
-            <span className="text-zinc-700">•</span>
+            <span className="text-zinc-700 hidden sm:inline">•</span>
             <span className="text-xs font-semibold text-amber-400 capitalize">
               {activeTab}
             </span>
@@ -178,15 +192,15 @@ export default function DashboardPage() {
 
           <button
             onClick={handleLogout}
-            className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-semibold text-zinc-300 hover:text-red-400 bg-zinc-900/80 hover:bg-red-500/10 border border-zinc-800 hover:border-red-500/30 transition-all active:scale-95 shadow-sm"
+            className="flex items-center gap-2 px-3 sm:px-3.5 py-1.5 rounded-xl text-xs font-semibold text-zinc-300 hover:text-amber-400 bg-zinc-900/80 hover:bg-amber-500/10 border border-zinc-800 hover:border-amber-400/30 transition-all active:scale-95 shadow-sm"
             title="Log out of dashboard"
           >
             <LogOut className="w-3.5 h-3.5" />
-            <span>Log Out</span>
+            <span className="hidden xs:inline">Log Out</span>
           </button>
         </header>
 
-        <div className="max-w-5xl w-full mx-auto px-6 py-8 flex-1">
+        <div className="max-w-5xl w-full mx-auto px-4 sm:px-6 py-6 sm:py-8 flex-1">
           {loadError && (
             <div
               role="alert"

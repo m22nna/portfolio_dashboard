@@ -106,7 +106,7 @@ export default function ProjectDetailModal({ project, onClose, onEdit, onDelete 
             <h4 className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-2.5">
               Project Description
             </h4>
-            <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-line select-text">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-900/60 p-4 text-zinc-300 text-sm sm:text-base leading-relaxed whitespace-pre-line select-text text-justify">
               {project.description || "No description provided."}
             </div>
           </div>

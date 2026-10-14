@@ -207,10 +207,10 @@ export default function ProjectsTab() {
   return (
     <div className="space-y-6">
       {/* الشريط العلوي: العنوان وزر الإضافة */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h2 className="text-2xl font-bold text-white">Projects</h2>
-          <p className="text-zinc-400 text-sm mt-0.5">
+          <h2 className="text-xl sm:text-2xl font-bold text-white">Projects</h2>
+          <p className="text-zinc-400 text-xs sm:text-sm mt-0.5">
             {projects.length} {projects.length === 1 ? "project" : "projects"} added
           </p>
         </div>
@@ -220,7 +220,7 @@ export default function ProjectsTab() {
             setEditingProject(null);
             setShowModal(true);
           }}
-          className="flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 text-black font-semibold text-sm hover:bg-amber-400 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-amber-500/20"
+          className="flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 text-black font-semibold text-sm hover:bg-amber-400 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-amber-500/20 w-full sm:w-auto"
         >
           <Plus className="w-4 h-4" />
           Add Project
