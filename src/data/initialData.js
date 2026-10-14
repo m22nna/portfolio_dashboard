@@ -1,0 +1,65 @@
+export const initialSkills = [
+  {
+    id: "1",
+    name: "React.js",
+    category: "Frontend",
+    level: 90,
+    color: "#61DAFB",
+    icon: "⚛️",
+  },
+  {
+    id: "2",
+    name: "JavaScript (ES6+)",
+    category: "Languages",
+    level: 92,
+    color: "#F7DF1E",
+    icon: "⚡",
+  },
+  {
+    id: "3",
+    name: "Tailwind CSS",
+    category: "Styling",
+    level: 88,
+    color: "#38BDF8",
+    icon: "🎨",
+  },
+  {
+    id: "4",
+    name: "Node.js",
+    category: "Backend",
+    level: 82,
+    color: "#339933",
+    icon: "🟢",
+  },
+  {
+    id: "5",
+    name: "Git & GitHub",
+    category: "Tools",
+    level: 85,
+    color: "#F05032",
+    icon: "🔀",
+  },
+];
+
+export const initialProjects = [
+  {
+    id: "1",
+    title: "E-Commerce Dashboard",
+    description: "A modern responsive admin dashboard built with React, Tailwind CSS, and Framer Motion.",
+    tags: ["React", "Tailwind CSS", "Dashboard"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+  },
+  {
+    id: "2",
+    title: "Portfolio Website",
+    description: "Personal interactive portfolio showcasing creative web dev projects and skills.",
+    tags: ["React", "Vite", "Motion"],
+    githubUrl: "https://github.com",
+    liveUrl: "https://example.com",
+    featured: true,
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+  },
+];
