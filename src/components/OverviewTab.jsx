@@ -38,6 +38,14 @@ export default function OverviewTab({ skills, projects }) {
       </div>
       <Skills/>
       <Projects/>
+       <a
+          href="https://mennatullah-ahmed.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mx-auto px-4 py-2.5 rounded-xl bg-amber-500 text-black font-semibold text-sm hover:bg-amber-400 transition-all hover:scale-[1.02] active:scale-95 shadow-lg shadow-amber-500/20 lg:w-fit sm:w-auto" >
+          
+          Portfolio
+        </a>
     </div>
   );
 }
